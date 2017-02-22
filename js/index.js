@@ -6,6 +6,7 @@ let colors = {};
 colors.Burbuja = '#2C92FF';
 colors.Seleccion = '#E82C0C';
 colors.Insercion = '#C7FF50';
+colors.QuickSort = '#9c27b0';
 
 let builders = {};
 
@@ -68,7 +69,7 @@ function buildData(listas, ...algorithms) {
 
 let myChart = new Chart(ctx, {
     type: 'line',
-    data: buildData(listas, Burbuja, Seleccion, Insercion),
+    data: buildData(listas, Burbuja, Seleccion, Insercion, QuickSort),
     options: {
         responsive: true,
         scales: {
