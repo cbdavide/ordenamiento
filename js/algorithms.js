@@ -105,3 +105,50 @@ function partition(arr, p, r) {
 	return {q: i+1, c: cont};
 }
 
+class BinarySearch {
+    constructor(arr) {
+        this.arr = arr;
+        this.init();
+    }
+
+    init() {
+        this.cont = 0;
+        this.begin = 0;
+        this.end = this.arr.length - 1;
+    }
+
+    search(element) {
+        this.init();
+        this._search(element);
+        return this.cont;
+    }
+
+    _search(element) {
+        this.cont++;
+        if(this.begin <= this.end) {
+            this.cont+=3;
+            let m = Math.floor((this.begin + this.end) / 2);
+
+            this.cont +=2;
+            if(this.arr[m] === element) {
+                this.cont += 1;
+                return m;
+            }
+
+            if(this.arr[m] < element){
+                this.cont += 4;
+                this.begin = m + 1;
+                return this._search(element);
+            }
+
+            if(this.arr[m] > element) {
+                this.cont += 4;
+                this.end = m - 1;
+                return this._search(element);
+            }
+        }
+
+        this.cont += 1;
+        return -1;
+    }
+}
